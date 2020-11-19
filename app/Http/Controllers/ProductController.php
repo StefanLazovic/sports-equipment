@@ -22,7 +22,7 @@ class ProductController extends Controller
     public function index()
     {
         // // // // // // // // // // // //Product::with('favorite')->paginate(5)
-        return ProductResource::collection(Product::paginate(5));
+        return ProductResource::collection(Product::paginate(6));
     }
 
     /**

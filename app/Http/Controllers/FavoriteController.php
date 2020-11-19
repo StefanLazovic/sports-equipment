@@ -27,13 +27,15 @@ class FavoriteController extends Controller
      */
     public function store(Request $request)
     {
+    return response()->json(['msg' => auth('api')->id()]);
         $this->validate($request, [
+          'user_id' => 'required',
           'product_id' => 'required',
           'favorite' => 'required'
         ]);
         
         $favorite = new Favorite;
-        $favorite->user_id = Auth::guard('api')->user()->id;
+        $favorite->user_id = auth('api')->user()->id;
         $favorite->product_id = $request->product_id;
         $favorite->favorite = $request->favorite;
         $favorite->save();

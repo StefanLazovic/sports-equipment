@@ -54,9 +54,11 @@
                         @else
 
                             {{--  * * * * * * react routes * * * * * * * *  --}}
-                              <li class="nav-item">
-                                <a href="/add" class="nav-link">Add New</a>
-                              </li>
+                              @if (Auth::user()->isAdmin === 1)
+                                <li class="nav-item">
+                                  <a href="/add" class="nav-link">Add New</a>
+                                </li>
+                              @endif
 
                               <li class="nav-item">
                                 <a href="/favorites" class="nav-link">Favorites</a>

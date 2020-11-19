@@ -31,7 +31,12 @@ const AddNew = () => {
     }
   }
 
+  const cleanMessage = () => {
+    setMessage('')
+  }
+
   const onSubmit = (values, { setSubmitting, resetForm }) => {
+    cleanMessage()
     axios.post('http://localhost:8000/api/products', values)
     .then(res => {
       setMessage(res.data.msg)
@@ -49,7 +54,9 @@ const AddNew = () => {
 
   return (
     <div className="container">
-      <h1 id="h1">Add New Product</h1>
+      <div className="row justify-content-center mt-5">
+        <h1 id="h1">Add New Product</h1>
+      </div>
       <Message message={message} />
       <Formik {...formikProps}>
         {

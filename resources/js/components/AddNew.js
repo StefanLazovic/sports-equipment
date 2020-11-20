@@ -4,23 +4,15 @@ import * as Yup from 'yup'
 import axios from 'axios'
 import Message from './Message'
 
+
+
 const AddNew = () => {
+
+  // success message for Message.js component
   const [message, setMessage] = useState('')
   
-  const initialValues = {
-    title: '',
-    description: '',
-    price: 0,
-    category: ''
-  }
 
-  const validationSchema = Yup.object({
-    title: Yup.string().min(3, 'Must be at least 3 characters').required('Required'),
-    description: Yup.string().min(3, 'Must be at least 3 characters').required('Required'),
-    price: Yup.number().positive().required('Required'),
-    category: Yup.string().oneOf(['soccer', 'basket', 'rugby']).required('Required'),
-  })
-
+  // bootstrap 4 red and green frame colors for inputs
   const formErrors = (errors, property) => {
     if (JSON.stringify(errors) === '{}') {
       return ''
@@ -31,9 +23,27 @@ const AddNew = () => {
     }
   }
 
+
+  const initialValues = {
+    title: '',
+    description: '',
+    price: 0,
+    category: ''
+  }
+
+
+  const validationSchema = Yup.object({
+    title: Yup.string().min(3, 'Must be at least 3 characters').required('Required'),
+    description: Yup.string().min(3, 'Must be at least 3 characters').required('Required'),
+    price: Yup.number().positive().required('Required'),
+    category: Yup.string().oneOf(['soccer', 'basket', 'rugby']).required('Required'),
+  })
+
+
   const cleanMessage = () => {
     setMessage('')
   }
+
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
     cleanMessage()
@@ -46,11 +56,13 @@ const AddNew = () => {
     .catch(err => console.log(err))
   }
 
+
   const formikProps = {
     initialValues,
     validationSchema,
     onSubmit
   }
+
 
   return (
     <div className="container">
@@ -98,7 +110,10 @@ const AddNew = () => {
       </Formik>
     </div>
   )
+
 }
+
+
 
 export default AddNew
 

@@ -91,11 +91,13 @@
                 </div>
             </div>
         </nav>
-        
+
+        {{--  * * * * * * react root * * * * * * * *  --}}
         @if (!Route::is('login') && !Route::is('register'))
           <div id="root"></div>
         @endif
-
+        {{--  * * * * * * * * * * * * * * * * * * * * *  --}}
+        
         <main class="py-4">
             @yield('content')
         </main>

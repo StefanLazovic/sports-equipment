@@ -1,6 +1,9 @@
 import React from 'react'
 
+
+
 const Orders = () => {
+
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -8,7 +11,10 @@ const Orders = () => {
       </div>
     </div>
   )
+  
 }
+
+
 
 export default Orders
 

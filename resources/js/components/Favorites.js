@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
+
+
 
 const Favorites = () => {
+
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -9,6 +11,9 @@ const Favorites = () => {
       </div>
     </div>
   )
+  
 }
+
+
 
 export default Favorites

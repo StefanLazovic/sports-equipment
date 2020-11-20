@@ -7,7 +7,6 @@ const Message = ({ message }) => {
   const [show, setShow] = useState({ display: 'none' })
 
 
-
   // show success message right after post request
   const showMessage = () => {
     if (!message) {
@@ -20,12 +19,10 @@ const Message = ({ message }) => {
   }
   
 
-
   // re-render the component every time message occurs
   useEffect(() => {
     showMessage()
   }, [message])
-
 
 
   return (

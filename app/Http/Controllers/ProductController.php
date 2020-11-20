@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth:api')->except(['index', 'show', 'store', 'update']);
+      $this->middleware('auth:api', ['except' => ['index', 'store']]);
     }
+
+
 
     /**
      * Display a listing of the resource.
@@ -21,9 +24,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // // // // // // // // // // // //Product::with('favorite')->paginate(5)
         return ProductResource::collection(Product::paginate(6));
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -51,38 +55,45 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        return new ProductResource($product);
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Product $product)
-    {
-        $product->update($request->only(['title', 'description', 'price', 'category']));
-        return new ProductResource($product);
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    // /**
+    //  * Display the specified resource.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function show(Product $product)
+    // {
+    //     return new ProductResource($product);
+    // }
+
+
+
+    // /**
+    //  * Update the specified resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function update(Request $request, Product $product)
+    // {
+    //     $product->update($request->only(['title', 'description', 'price', 'category']));
+    //     return new ProductResource($product);
+    // }
+
+
+
+    // /**
+    //  * Remove the specified resource from storage.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function destroy($id)
+    // {
+    //     //
+    // }
+
 }

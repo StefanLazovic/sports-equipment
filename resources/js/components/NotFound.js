@@ -1,6 +1,9 @@
 import React from 'react'
 
-export default function NotFound() {
+
+
+const NotFound = () => {
+
   return (
     <div className="container">
       <div className="row justify-content-center mt-5">
@@ -13,4 +16,9 @@ export default function NotFound() {
       </div>
     </div>
   )
+  
 }
+
+
+
+export default NotFound

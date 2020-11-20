@@ -13,27 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 
 Auth::routes();
 
-// npm i react-router-dom
-// Route::view('/{path?}', 'welcome');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::get('{path}', function () {
-//   return view('layouts.app');
-// })->where('path', '[\/\w\.-]*')->middleware('auth')->middleware('verified');
-
-// Route::get('{path}', function () {
-//   return view('layouts.app');
-// })->where('path', '[\/\w\.-]*')->middleware('auth')->middleware('verified');
 
 if (Request::path() == '/') {
+  
   Route::get('{path}', function () { return view('layouts.app'); })->where('path', '[\/\w\.-]*');
+
 } else {
+
   Route::get('{path}', function () { return view('layouts.app'); })->where('path', '[\/\w\.-]*')->middleware('auth');
+
 }

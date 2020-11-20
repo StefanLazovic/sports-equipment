@@ -11,7 +11,6 @@ const Home = () => {
   const [meta, setMeta] = useState({})
   
 
-
   // called only once after component render
   const fetchProducts = () => {
     axios.get('http://localhost:8000/api/products')
@@ -21,7 +20,6 @@ const Home = () => {
     })
     .catch(err => console.log(err))
   }
-
 
 
   // call, save, and show next portion of products (Pagination.js)
@@ -37,12 +35,10 @@ const Home = () => {
   }
 
 
-
   useEffect(() => {
     fetchProducts()
   }, [])
   
-
 
   return (
     <div className="container">

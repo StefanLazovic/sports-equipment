@@ -16,7 +16,6 @@ const Pagination = ({ meta, callPaginationProducts }) => {
   }
   
 
-
   return (
     <div className="row justify-content-center">
       <nav>
